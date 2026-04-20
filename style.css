@@ -1,0 +1,69 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.tab-pane {
+  min-height: 65vh;
+}
+
+/* 🔥 Same landscape size for all carousel images */
+.carousel-item img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+/* Home image styling */
+#home img {
+  width: 60%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+/* Custom gap adjustment for nav buttons */
+.nav-pills {
+  gap: 10px;
+}
+
+/* 🚫 FORCE BLOCK mobile + tablet */
+@media (max-width: 1024px) {
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide EVERYTHING EXCEPT blocker */
+  body *:not(.device-block):not(.device-block *) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Show ONLY blocker */
+  .device-block {
+    display: flex !important;
+    visibility: visible !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 999999;
+    padding: 20px;
+  }
+}
