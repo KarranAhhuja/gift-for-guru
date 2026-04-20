@@ -35,28 +35,33 @@ body {
   gap: 10px;
 }
 
+/* 1. Hide the blocker by default for desktops/laptops */
+.device-block {
+  display: none;
+}
+
 /* 🚫 FORCE BLOCK mobile + tablet */
-@media (max-width: 1024px) {
+/* Using 991px targets tablets and phones only */
+@media (max-width: 991px) {
 
   html, body {
     margin: 0 !important;
     padding: 0 !important;
+    overflow: hidden; /* Prevents scrolling behind the blocker */
   }
 
   /* Hide EVERYTHING EXCEPT blocker */
   body *:not(.device-block):not(.device-block *) {
     display: none !important;
-    visibility: hidden !important;
   }
 
   /* Show ONLY blocker */
   .device-block {
     display: flex !important;
-    visibility: visible !important;
     position: fixed !important;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background: #000;
     color: #fff;
